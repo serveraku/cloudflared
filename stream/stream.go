@@ -129,8 +129,6 @@ func unidirectionalStream(dst WriterCloser, src Reader, dir string, status *bidi
 		}
 	}()
 
-	defer dst.CloseWrite()
-
 	_, err := copyData(dst, src, dir)
 	if err != nil {
 		log.Debug().Msgf("%s copy: %v", dir, err)
